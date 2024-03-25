@@ -10,7 +10,7 @@ class Matrix(private val rows: Int, private val cols: Int) {
 
     operator fun plus(other: Matrix): Matrix {
         if (!isMatrixHaveTheSameSize(this, other)) {
-            throw RuntimeException("We can provide operation on equal Matrix only")
+            throw NotEqualMatrixException("We can provide operation on equal Matrix only")
         }
         val resultMatrix = Matrix(rows, cols)
         for (i in 0 until rows) {
@@ -24,7 +24,7 @@ class Matrix(private val rows: Int, private val cols: Int) {
 
     operator fun minus(other: Matrix): Matrix {
         if (!isMatrixHaveTheSameSize(this, other)) {
-            throw RuntimeException("We can provide operation on equal Matrix only")
+            throw NotEqualMatrixException("We can provide operation on equal Matrix only")
         }
         val resultMatrix = Matrix(rows, cols)
         for (i in 0 until rows) {
