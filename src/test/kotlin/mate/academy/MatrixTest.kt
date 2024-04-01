@@ -49,7 +49,8 @@ class MatrixTest {
 
         // then
         assertEquals(topLeftValue, matrix[0, 0], "Top left value should be updated and retrieved correctly.")
-        assertEquals(bottomRightValue, matrix[2, 2], "Bottom right value should be updated and retrieved correctly.")
+        assertEquals(bottomRightValue, matrix[2, 2],
+            "Bottom right value should be updated and retrieved correctly.")
     }
 
     @Test
@@ -152,8 +153,10 @@ class MatrixTest {
         // then
         for (row in 0 until 2) {
             for (col in 0 until 2) {
-                assertEquals(expectedMatrix1[row, col], originalMatrix1[row, col], "Original matrix1 should remain unchanged.")
-                assertEquals(expectedMatrix2[row, col], originalMatrix2[row, col], "Original matrix2 should remain unchanged.")
+                assertEquals(expectedMatrix1[row, col], originalMatrix1[row, col],
+                    "Original matrix1 should remain unchanged.")
+                assertEquals(expectedMatrix2[row, col], originalMatrix2[row, col],
+                    "Original matrix2 should remain unchanged.")
             }
         }
     }
