@@ -8,8 +8,8 @@ class Matrix(private val rows: Int, private val cols: Int) {
         data[row][col] = value
     }
     operator fun plus(other: Matrix): Matrix {
-        if (rows != other.rows || cols != other.cols) {
-            throw IllegalArgumentException("Matrices must have the same dimensions to be added.")
+        require(rows == other.rows && cols == other.cols) {
+            "Matrices must have the same dimensions to be added."
         }
         val result = Matrix(rows, cols)
         for (i in 0 until rows) {
@@ -21,8 +21,8 @@ class Matrix(private val rows: Int, private val cols: Int) {
     }
 
     operator fun minus(other: Matrix): Matrix {
-        if (rows != other.rows || cols != other.cols) {
-            throw IllegalArgumentException("Matrices must have the same dimensions to be subtracted.")
+        require(rows == other.rows && cols == other.cols) {
+            "Matrices must have the same dimensions to be subtracted."
         }
         val result = Matrix(rows, cols)
         for (i in 0 until rows) {
