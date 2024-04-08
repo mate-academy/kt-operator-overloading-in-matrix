@@ -1,23 +1,22 @@
-# Operator Overloading in Matrix
+# Operator Overloading for Matrix Operations
 
-In this task, you will enhance a `Matrix` class to support matrix addition and subtraction operations using operator overloading. 
-The `Matrix` class is already provided with basic functionalities like getting and setting values of elements. 
-Your task is to implement the addition and subtraction operations that allow for the manipulation of matrix data in a more intuitive way.
+In this task, you will extend the functionality of a `Matrix` class to support matrix addition and subtraction operations using operator overloading. The `Matrix` class already includes basic functionalities such as accessing and modifying elements. 
 
-### What you already have?
+Your objective is to implement addition and subtraction operations so that you can use matrix data correctly.
 
-- The `Matrix` class constructor takes two arguments: `rows` and `cols`, representing the number of rows and columns in the matrix, respectively.
-- The matrix data is stored in a 2D array of integers.
-- Use the provided `get` and `set` operators to access matrix elements.
-- Overridden `toString` method could be used for easy printing of matrix contents.
+## Existing Features
 
-### Task description
+- The `Matrix` class constructor requires two arguments: `rows` and `columns`, indicating the dimensions of the matrix.
+- Matrix data is stored in a 2D array of integers.
+- Access to matrix elements is facilitated through provided `get` and `set` operators.
+- The `toString` method is overridden for easy printing of matrix contents.
 
-- **Implement operator overloading for addition (`+`) and subtraction (`-`) operations** within the `Matrix` class. These operations should return a new `Matrix` object representing the result of the operation.
+## Task Details
 
-### Example usage
+**Implement operator overloading for addition (`+`) and subtraction (`-`) operations** within the `Matrix` class. These operations should return a new `Matrix` object representing the result.
 
-Here's an example of how someone might use your enhanced `Matrix` class:
+## Example
+Below is an example illustrating the usage of your extended `Matrix` class:
 
 ```kotlin
 val matrix1 = Matrix(2, 2)
