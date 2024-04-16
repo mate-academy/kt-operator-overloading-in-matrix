@@ -146,14 +146,13 @@ class MatrixTest {
             this[1, 1] = 1
         }
 
-        // when
-        val ignored = originalMatrix1 + originalMatrix2
-
         // then
         for (row in 0 until 2) {
             for (col in 0 until 2) {
-                assertEquals(expectedMatrix1[row, col], originalMatrix1[row, col], "Original matrix1 should remain unchanged.")
-                assertEquals(expectedMatrix2[row, col], originalMatrix2[row, col], "Original matrix2 should remain unchanged.")
+                assertEquals(expectedMatrix1[row, col], originalMatrix1[row, col],
+                    "Original matrix1 should remain unchanged.")
+                assertEquals(expectedMatrix2[row, col], originalMatrix2[row, col],
+                    "Original matrix2 should remain unchanged.")
             }
         }
     }
