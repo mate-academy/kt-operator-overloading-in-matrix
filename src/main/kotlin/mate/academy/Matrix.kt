@@ -1,5 +1,7 @@
 package mate.academy
 
+const val ZERO = 0
+
 class Matrix(private val rows: Int, private val cols: Int) {
     private val data = Array(rows) { IntArray(cols) }
 
@@ -8,7 +10,25 @@ class Matrix(private val rows: Int, private val cols: Int) {
         data[row][col] = value
     }
 
-    // TODO: implement overloading operators for matrix addition and subtraction
+    operator fun plus(otherMatrix: Matrix): Matrix {
+        val result = Matrix(data.size, data[ZERO].size)
+        for (row in data.indices) {
+            for (col in ZERO until data[ZERO].size) {
+                result[row, col] = get(row, col) + otherMatrix[row, col]
+            }
+        }
+        return result
+    }
+
+    operator fun minus(otherMatrix: Matrix): Matrix {
+        val result = Matrix(data.size, data[ZERO].size)
+        for (row in data.indices) {
+            for (col in ZERO until data[ZERO].size) {
+                result[row, col] = get(row, col) - otherMatrix[row, col]
+            }
+        }
+        return result
+    }
 
     override fun toString(): String {
         return data.joinToString(separator = "\n") { row -> row.joinToString(" ") }
