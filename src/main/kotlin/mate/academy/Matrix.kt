@@ -8,7 +8,6 @@ class Matrix(private val rows: Int, private val cols: Int) {
         data[row][col] = value
     }
 
-    // TODO: implement overloading operators for matrix addition and subtraction
     operator fun plus(other: Matrix): Matrix {
         val result: Matrix = Matrix(other.rows,other.cols)
         for (row in data.indices) {

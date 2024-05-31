@@ -48,8 +48,10 @@ class MatrixTest {
         matrix[2, 2] = bottomRightValue
 
         // then
-        assertEquals(topLeftValue, matrix[0, 0], "Top left value should be updated and retrieved correctly.")
-        assertEquals(bottomRightValue, matrix[2, 2], "Bottom right value should be updated and retrieved correctly.")
+        assertEquals(topLeftValue, matrix[0, 0],
+            "Top left value should be updated and retrieved correctly.")
+        assertEquals(bottomRightValue, matrix[2, 2],
+            "Bottom right value should be updated and retrieved correctly.")
     }
 
     @Test
