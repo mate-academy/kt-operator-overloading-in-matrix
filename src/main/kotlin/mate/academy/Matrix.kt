@@ -10,9 +10,8 @@ class Matrix(private val rows: Int, private val cols: Int) {
     }
 
     operator fun plus(other: Matrix): Matrix {
-        if (this.rows != other.rows || this.cols != other.cols) {
-            throw IllegalArgumentException("Матриці повинні бути однакового розміру")
-        }
+        kotlin.require(this.rows == other.rows
+                && this.cols == other.cols) {"Матриці повинні бути однакового розміру"}
 
         val result = Matrix(rows, cols)
 
