@@ -9,20 +9,22 @@ class Matrix(private val rows: Int, private val cols: Int) {
     }
 
     operator fun plus(other: Matrix): Matrix {
+        require(rows == other.rows && cols == other.cols) { "Matrix dimensions must match for addition." }
         val result = Matrix(rows, cols)
-        for (row in 0 until rows) {
-            for (col in 0 until cols) {
-                result[row, col] = this[row, col] + other[row, col]
+        for (i in 0 until rows) {
+            for (j in 0 until cols) {
+                result[i, j] = this[i, j] + other[i, j]
             }
         }
         return result
     }
 
     operator fun minus(other: Matrix): Matrix {
+        require(rows == other.rows && cols == other.cols) { "Matrix dimensions must match for subtraction." }
         val result = Matrix(rows, cols)
-        for (row in 0 until rows) {
-            for (col in 0 until cols) {
-                result[row, col] = this[row, col] - other[row, col]
+        for (i in 0 until rows) {
+            for (j in 0 until cols) {
+                result[i, j] = this[i, j] - other[i, j]
             }
         }
         return result
