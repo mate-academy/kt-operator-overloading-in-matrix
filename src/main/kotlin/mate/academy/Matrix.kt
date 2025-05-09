@@ -8,7 +8,28 @@ class Matrix(private val rows: Int, private val cols: Int) {
         data[row][col] = value
     }
 
-    // TODO: implement overloading operators for matrix addition and subtraction
+    operator fun plus(other: Matrix): Matrix {
+        require(rows == other.rows && cols == other.cols)
+        { "Matrices must have the same dimensions for addition" }
+        val matrixAfterPlusOperation = Matrix(rows, cols)
+        for (i in 0 until rows) {
+            for (j in 0 until cols) {
+                matrixAfterPlusOperation[i, j] = this[i, j] + other[i, j]
+            }
+        }
+        return matrixAfterPlusOperation
+    }
+     operator fun minus(other: Matrix) :Matrix {
+         require(rows == other.rows && cols == other.cols)
+         {"Matrices must have the same dimensions for addition"}
+         val matrixAfterMinusOperation = Matrix(rows,cols)
+         for (i in 0 until rows) {
+             for (j in 0 until cols) {
+                 matrixAfterMinusOperation[i,j] = this[i,j] - other[i,j]
+             }
+         }
+         return matrixAfterMinusOperation
+     }
 
     override fun toString(): String {
         return data.joinToString(separator = "\n") { row -> row.joinToString(" ") }
