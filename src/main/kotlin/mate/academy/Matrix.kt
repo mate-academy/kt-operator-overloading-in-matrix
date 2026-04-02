@@ -7,8 +7,30 @@ class Matrix(private val rows: Int, private val cols: Int) {
     operator fun set(row: Int, col: Int, value: Int) {
         data[row][col] = value
     }
-
-    // TODO: implement overloading operators for matrix addition and subtraction
+    operator fun plus(other: Matrix): Matrix {
+        require(rows == other.rows && cols == other.cols){
+            "Invalid input"
+        }
+        val result = Matrix(rows, cols)
+        for (i in 0 until rows) {
+            for (j in 0 until cols) {
+                result[i, j] = data[i][j] + other.data[i][j]
+            }
+        }
+        return result
+    }
+    operator fun minus(other: Matrix): Matrix {
+        require(rows == other.rows && cols == other.cols){
+            "Invalid input"
+        }
+        val result = Matrix(rows, cols)
+        for (i in 0 until rows) {
+            for (j in 0 until cols) {
+                result[i, j] = data[i][j] - other.data[i][j]
+            }
+        }
+        return result
+    }
 
     override fun toString(): String {
         return data.joinToString(separator = "\n") { row -> row.joinToString(" ") }
