@@ -1,5 +1,7 @@
 package mate.academy
 
+import javax.print.attribute.standard.MediaSize.Other
+
 class Matrix(private val rows: Int, private val cols: Int) {
     private val data = Array(rows) { IntArray(cols) }
 
@@ -8,7 +10,25 @@ class Matrix(private val rows: Int, private val cols: Int) {
         data[row][col] = value
     }
 
-    // TODO: implement overloading operators for matrix addition and subtraction
+    operator fun plus(other: Matrix) : Matrix {
+        val result = Matrix(rows, cols)
+        for (row in 0 until rows) {
+            for (col in 0 until cols) {
+                result[row, col] = this[row, col] + other[row, col]
+            }
+        }
+        return result
+    }
+
+    operator fun minus(other: Matrix) : Matrix {
+        val result = Matrix(rows, cols)
+        for (row in 0 until rows) {
+            for (col in 0 until cols) {
+                result[row, col] = this[row, col] - other[row, col]
+            }
+        }
+        return result
+    }
 
     override fun toString(): String {
         return data.joinToString(separator = "\n") { row -> row.joinToString(" ") }
