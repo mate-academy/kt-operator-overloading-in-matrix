@@ -1,5 +1,7 @@
 package mate.academy
 
+const val DIMENSION_MISMATCH_ERROR = "Matrices dimensions must match"
+
 class Matrix(private val rows: Int, private val cols: Int) {
     private val data = Array(rows) { IntArray(cols) }
 
@@ -8,7 +10,32 @@ class Matrix(private val rows: Int, private val cols: Int) {
         data[row][col] = value
     }
 
-    // TODO: implement overloading operators for matrix addition and subtraction
+    operator fun plus(other: Matrix): Matrix {
+        require(this.rows == other.rows && this.cols == other.cols) {
+            DIMENSION_MISMATCH_ERROR
+        }
+        val result = Matrix(rows, cols)
+
+        for (i in 0 until rows) {
+            for (j in 0 until cols) {
+                result[i, j] = this[i, j] + other[i, j]
+            }
+        }
+        return result
+    }
+
+    operator fun minus(other: Matrix): Matrix {
+        require(this.rows == other.rows && this.cols == other.cols) {
+            DIMENSION_MISMATCH_ERROR
+        }
+        val result = Matrix(rows, cols)
+        for (i in 0 until rows) {
+            for (j in 0 until cols) {
+                result[i, j] = this[i, j] - other[i, j]
+            }
+        }
+        return result
+    }
 
     override fun toString(): String {
         return data.joinToString(separator = "\n") { row -> row.joinToString(" ") }
