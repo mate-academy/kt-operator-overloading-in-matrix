@@ -8,7 +8,25 @@ class Matrix(private val rows: Int, private val cols: Int) {
         data[row][col] = value
     }
 
-    // TODO: implement overloading operators for matrix addition and subtraction
+    operator fun plus(matrix: Matrix): Matrix {
+        val result = Matrix(rows, cols)
+        for (r in 0 until rows) {
+            for (c in 0 until cols) {
+                result[r, c] = this[r, c] + matrix[r, c]
+            }
+        }
+        return result
+    }
+
+    operator fun minus(matrix: Matrix): Matrix {
+        val result = Matrix(rows, cols)
+        for (r in 0 until rows) {
+            for (c in 0 until cols) {
+                result[r, c] = this[r, c] - matrix[r, c]
+            }
+        }
+        return result
+    }
 
     override fun toString(): String {
         return data.joinToString(separator = "\n") { row -> row.joinToString(" ") }
